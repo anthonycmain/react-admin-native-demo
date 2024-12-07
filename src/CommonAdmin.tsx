@@ -1,15 +1,21 @@
 import { CoreAdminContext, CoreAdminUI, Resource } from "ra-core";
-import { dataProvider } from "./dataProvider";
-import { i18nProvider } from "./i18nProvider";
+
+import { dataProvider } from "./providers/dataProvider";
+import { i18nProvider } from "./providers/i18nProvider";
+import { authProvider } from "./providers/authProvider";
+
 import { Layout } from "./ui/Layout";
 import { Dashboard } from "./Dashboard";
 import { products } from "./products";
 import { categories } from "./categories";
+import { companies } from "./companies";
+import { LoginPage } from "ra-supabase";
 
 export const Admin = () => {
   return (
-    <CoreAdminContext dataProvider={dataProvider} i18nProvider={i18nProvider}>
-      <CoreAdminUI dashboard={Dashboard} layout={Layout} title="React Admin">
+    <CoreAdminContext dataProvider={dataProvider} i18nProvider={i18nProvider} >
+      <CoreAdminUI dashboard={Dashboard} layout={Layout} title="React Admin" >
+        <Resource {...companies} />
         <Resource {...products} />
         <Resource {...categories} />
       </CoreAdminUI>
