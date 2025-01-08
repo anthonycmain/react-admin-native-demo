@@ -9,12 +9,12 @@ import { Dashboard } from "./Dashboard";
 import { products } from "./products";
 import { categories } from "./categories";
 import { companies } from "./companies";
-import { LoginPage } from "ra-supabase";
+import  LoginPage  from "./ui/LoginPage"
 
 export const Admin = () => {
   return (
-    <CoreAdminContext dataProvider={dataProvider} i18nProvider={i18nProvider} >
-      <CoreAdminUI dashboard={Dashboard} layout={Layout} title="React Admin" >
+    <CoreAdminContext dataProvider={dataProvider} i18nProvider={i18nProvider} authProvider={authProvider} >
+      <CoreAdminUI dashboard={Dashboard} layout={Layout} title="React Admin" loginPage={LoginPage}>
         <Resource {...companies} />
         <Resource {...products} />
         <Resource {...categories} />

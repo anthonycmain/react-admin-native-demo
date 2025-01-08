@@ -38,6 +38,13 @@ export const Appbar = () => {
         <Menu.Item
           onPress={() => {
             setVisible(false);
+            navigate("/login");
+          }}
+          title={translate("ra.auth.sign_in")}
+        />
+        <Menu.Item
+          onPress={() => {
+            setVisible(false);
             navigate("/");
           }}
           title={translate("ra.page.dashboard")}

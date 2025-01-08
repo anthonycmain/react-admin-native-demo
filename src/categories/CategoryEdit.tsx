@@ -1,6 +1,6 @@
 import { EditBase, useGetManyReference, useRecordContext } from "ra-core";
 import { Form } from "../ui/Form";
-import { RaTextInput } from "../ui/RaTextInput";
+import { RaTextInput } from "../components/RaTextInput";
 import { View } from "react-native";
 
 export const CategoryEdit = () => {

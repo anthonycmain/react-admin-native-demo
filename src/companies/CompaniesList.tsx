@@ -39,12 +39,7 @@ const CompanyListView = () => {
 const CompanyItem = () => {
   const navigate = useNavigate();
   const record = useRecordContext();
-  const { total } = useGetManyReference("products", {
-    target: "company_id",
-    id: record.id,
-    pagination: { page: 1, perPage: 1 },
-  });
-
+  
   return (
     <List.Item
       title={record.name}

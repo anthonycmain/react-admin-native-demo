@@ -1,7 +1,7 @@
 import { EditBase, useRecordContext } from "ra-core";
 import { Form } from "../ui/Form";
-import { RaTextInput } from "../ui/RaTextInput";
-import { RaReferenceInput } from "../ui/RaReferenceInput";
+import { RaTextInput } from "../components/RaTextInput";
+import { RaReferenceInput } from "../components/RaReferenceInput";
 import { View } from "react-native";
 
 export const ProductEdit = () => {
