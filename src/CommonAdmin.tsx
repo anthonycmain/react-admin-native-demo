@@ -9,7 +9,8 @@ import { Dashboard } from "./Dashboard";
 import { products } from "./products";
 import { categories } from "./categories";
 import { companies } from "./companies";
-import  LoginPage  from "./ui/LoginPage"
+import { custom } from "./custom";
+import LoginPage from "./ui/LoginPage"
 
 export const Admin = () => {
   return (
@@ -18,6 +19,7 @@ export const Admin = () => {
         <Resource {...companies} />
         <Resource {...products} />
         <Resource {...categories} />
+        <Resource {...custom} />
       </CoreAdminUI>
     </CoreAdminContext>
   );

@@ -1,7 +1,3 @@
-// import fakeRestDataProvider from "ra-data-fakerest";
-// import generateData from "data-generator-retail";
-
-// export const dataProvider = fakeRestDataProvider(generateData(), true);
 import { createClient } from '@supabase/supabase-js';
 import { supabaseDataProvider, supabaseAuthProvider } from 'ra-supabase-core';
 
