@@ -49,7 +49,7 @@ const LoginPage = () => {
 
     return (
         <PaperProvider>
-          <AuthLayout>
+          
           <View style={styles.view}>
             <Card style={styles.view}>
               <Text>
@@ -70,7 +70,7 @@ const LoginPage = () => {
               </Form>
             </Card>
           </View>
-          </AuthLayout>
+          
         </PaperProvider>
     );
 }
