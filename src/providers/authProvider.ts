@@ -18,3 +18,16 @@ export const authProvider = supabaseAuthProvider(supabase, {
     };
   },
 });
+
+export const loginWithTokens = async ({ email, password }) => {
+  const { data: session, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    throw new Error("Login failed");
+  }
+
+  return session;
+};

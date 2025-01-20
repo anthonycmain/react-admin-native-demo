@@ -7,7 +7,7 @@ import { Button } from "react-native-paper";
 import Constants from "expo-constants";
 import { Form } from "./Form";
 import { useTranslate } from "ra-core";
-import { authProvider } from "../providers/authProvider";
+import { authProvider, loginWithTokens } from "../providers/authProvider";
 import { AuthLayout } from "./AuthLayout";
 import { dataProvider } from "../providers/dataProvider";
 
@@ -22,10 +22,9 @@ const LoginPage = () => {
     authProvider
       .login({ email, password })
       .then(async (result) => {
-        const hC = await authProvider.handleCallback({ email, password }); //To change: Not the right method
-        console.log("Login successful", hC);
         // Success case - login successful
-        login({ email, password });
+        const session = await loginWithTokens({ email, password });
+        console.log("Login successful", session);
       })
       .catch((error: any) => {
         console.log("Login error:", error);
