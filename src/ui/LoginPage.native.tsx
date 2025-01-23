@@ -2,14 +2,10 @@ import { useState, Component } from "react";
 import { useLogin, useNotify } from "react-admin";
 import { Card, PaperProvider, Text } from "react-native-paper";
 import { RaTextInput } from "../components/RaTextInput";
-import { StyleSheet, View } from "react-native";
-import { Button } from "react-native-paper";
-import Constants from "expo-constants";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import { Form } from "./Form";
-import { useTranslate } from "ra-core";
 import { authProvider, loginWithTokens } from "../providers/authProvider";
-import { AuthLayout } from "./AuthLayout";
-import { dataProvider } from "../providers/dataProvider";
+import { useNavigate } from "react-router-native";
 
 // const translate = useTranslate();
 const LoginPage = () => {
@@ -17,6 +13,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState<string>("Testing1234!"); //To Remove
   const login = useLogin();
   const notify = useNotify();
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     authProvider
@@ -25,6 +22,8 @@ const LoginPage = () => {
         // Success case - login successful
         const session = await loginWithTokens({ email, password });
         console.log("Login successful", session);
+
+        () => navigate("/companies");
       })
       .catch((error: any) => {
         console.log("Login error:", error);
@@ -51,49 +50,37 @@ const LoginPage = () => {
 
   return (
     <PaperProvider>
-      <View style={styles.view}>
-        <Card style={styles.view}>
+      <SafeAreaView style={styles.view}>
+        <Card style={styles.card}>
           <Text>{login.name}</Text>
           <Form onSubmit={handleSubmit}>
             <RaTextInput label="Email" source="email" onChange={setEmail} />
             <RaTextInput
+              label="Password"
               source="password"
               type="password"
               onChange={setPassword}
             />
           </Form>
         </Card>
-      </View>
+      </SafeAreaView>
     </PaperProvider>
   );
 };
 
 export default LoginPage;
 
-// export const LoginPage = () => {
-//     return (
-// <Card>
-//   <Text>
-//     Hello Lena
-//   </Text>
-// </Card>
-//     );
-// };
-
 const styles = StyleSheet.create({
   view: {
-    flex: 1,
-    // flexDirection: 'row',
-    // alignContent: 'center',
     alignItems: "center",
+    width: "100%",
     justifyContent: "center",
-    // verticalAlign: 'middle',
-    // alignSelf: 'center'
+    verticalAlign: "middle",
   },
   card: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
+    verticalAlign: "middle",
+    width: "100%",
   },
 });
