@@ -1,6 +1,5 @@
 import { Provider, SupabaseClient, User } from '@supabase/supabase-js';
 import { AuthProvider, UserIdentity } from 'ra-core';
-import { getSearchString } from './getSearchString';
 
 export const supabaseAuthProvider = (
     client: SupabaseClient,

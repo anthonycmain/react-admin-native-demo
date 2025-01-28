@@ -5,7 +5,7 @@ export const authProvider = supabaseAuthProvider(supabase, {
   getIdentity: async (user) => {
     const { data, error } = await supabase
       .from("sales")
-      .select("id, first_name, last_name")
+      .select("id, first_name, last_name, td_role")
       .ilike("email", user.email as string)
       .single();
 

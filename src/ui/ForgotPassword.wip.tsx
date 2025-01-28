@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ReactNode } from 'react';
 
-import { AuthLayout } from './AuthLayout';
+import { AuthLayout } from '../layout/AuthLayout';
 import { ForgotPasswordForm } from './ForgotPasswordForm';
 
 /**

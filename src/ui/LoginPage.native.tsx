@@ -8,7 +8,7 @@ import Constants from "expo-constants";
 import { Form } from "./Form";
 import { useTranslate } from "ra-core";
 import { authProvider, loginWithTokens } from "../providers/authProvider";
-import { AuthLayout } from "./AuthLayout";
+import { AuthLayout } from "../layout/AuthLayout";
 import { dataProvider } from "../providers/dataProvider";
 
 // const translate = useTranslate();
@@ -52,7 +52,7 @@ const LoginPage = () => {
   return (
     <PaperProvider>
       <View style={styles.view}>
-        <Card style={styles.view}>
+        <Card style={styles.card}>
           <Text>{login.name}</Text>
           <Form onSubmit={handleSubmit}>
             <RaTextInput label="Email" source="email" onChange={setEmail} />
@@ -92,6 +92,8 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
+    marginTop: 100,
+    paddingTop: 100,
     alignItems: "center",
     justifyContent: "center",
     padding: 20,

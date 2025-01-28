@@ -21,7 +21,7 @@ import {
     TwitterButton,
     WorkosButton,
 } from './SocialAuthButton';
-import { AuthLayout } from './AuthLayout';
+import { AuthLayout } from '../layout/AuthLayout';
 import { LoginForm } from './LoginForm';
 
 /**
