@@ -11,6 +11,7 @@ export const RaTextInput = (props: InputProps) => {
       value={field.value}
       onChangeText={field.onChange}
       style={{width: 300}}
+      autoCapitalize="none"
     />
   );
 };

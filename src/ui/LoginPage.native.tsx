@@ -29,7 +29,7 @@ const LoginPage = () => {
         console.log("Login successful");
 
         // Redirect to the dashboard or another page after successful login
-        navigate("/dashboard");
+        navigate("/contacts");
       })
       .catch((error: any) => {
         console.log("Login error:", error);

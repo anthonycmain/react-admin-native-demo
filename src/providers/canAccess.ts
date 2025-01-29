@@ -37,8 +37,8 @@ export const canAccess = async <
         // Split the actions string and check if it includes the requested action
         const allowedActions = permission.action
             .split(',')
-            .map((a: string) => a.trim());
-        return allowedActions.includes(params.action);
+            .map((a: string) => a.trim().toLowerCase());
+        return allowedActions.includes(params.action.toLowerCase());
     });
 
     return hasPermission;
