@@ -7,7 +7,7 @@ import { Button } from "react-native-paper";
 import Constants from "expo-constants";
 import { Form } from "./Form";
 import { useTranslate } from "ra-core";
-import { authProvider, loginWithTokens } from "../providers/authProvider";
+import { authProvider } from "../providers/authProvider";
 import { AuthLayout } from "../layout/AuthLayout";
 import { dataProvider } from "../providers/dataProvider";
 
@@ -18,13 +18,13 @@ const LoginPage = () => {
   const login = useLogin();
   const notify = useNotify();
 
-  const handleSubmit = async () => {
+  const submit = async () => {
     authProvider
       .login({ email, password })
-      .then(async (result) => {
+      .then(result => {
         // Success case - login successful
-        const session = await loginWithTokens({ email, password });
-        console.log("Login successful", session);
+        //const session = await loginWithTokens({ email, password });
+        console.log("Login successful");
       })
       .catch((error: any) => {
         console.log("Login error:", error);
@@ -54,8 +54,8 @@ const LoginPage = () => {
       <View style={styles.view}>
         <Card style={styles.card}>
           <Text>{login.name}</Text>
-          <Form onSubmit={handleSubmit}>
-            <RaTextInput label="Email" source="email" onChange={setEmail} />
+          <Form onSubmit={submit}>
+            <RaTextInput label="Email" source="email" onChange={setEmail}  />
             <RaTextInput
               source="password"
               type="password"
@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     // verticalAlign: 'middle',
     // alignSelf: 'center'
+    backgroundColor: 'blue'
   },
   card: {
     flex: 1,
@@ -98,4 +99,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
   },
+  input: {
+    width: 400
+  }
 });

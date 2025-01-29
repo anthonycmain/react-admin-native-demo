@@ -4,16 +4,18 @@ import { Card, TextInput, Button, Text } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native';
 
 const LoginForm = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('anthony@thedistance.co.uk');
+    const [password, setPassword] = useState('Test123!');
     const login = useLogin();
     const notify = useNotify();
 
-    const handleSubmit = async () => {
-        try {
-            console.log('submit' + email)
-            await login({ email, password });
-        } catch (error: any) {
+    const submit = async () => {
+        login({ email, password })
+        .then(() => {
+                //setLoading(false);
+                // Do something to show loading
+            })
+        .catch (error => {
             notify(
                 typeof error === 'string'
                     ? error
@@ -61,7 +63,7 @@ const LoginForm = () => {
                     />
                     <Button
                         mode="contained"
-                        onPress={handleSubmit}
+                        onPress={submit}
                         style={styles.button}
                         
                     >
@@ -81,7 +83,6 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '100%',
-        maxWidth: 400,
         alignSelf: 'center',
     },
     title: {
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
     },
     input: {
         marginBottom: 16,
+        width: 500
     },
     button: {
         marginTop: 8,

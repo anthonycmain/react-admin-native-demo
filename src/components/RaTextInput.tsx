@@ -10,6 +10,7 @@ export const RaTextInput = (props: InputProps) => {
       label={props.label?.toString()}
       value={field.value}
       onChangeText={field.onChange}
+      style={{width: 300}}
     />
   );
 };
