@@ -10,6 +10,7 @@ import { useTranslate } from "ra-core";
 import { authProvider } from "../providers/authProvider";
 import { AuthLayout } from "../layout/AuthLayout";
 import { dataProvider } from "../providers/dataProvider";
+import { useNavigate } from "react-router-native";
 
 // const translate = useTranslate();
 const LoginPage = () => {
@@ -17,6 +18,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState<string>("Testing1234!"); //To Remove
   const login = useLogin();
   const notify = useNotify();
+  const navigate = useNavigate();
 
   const submit = async () => {
     authProvider
@@ -25,6 +27,9 @@ const LoginPage = () => {
         // Success case - login successful
         //const session = await loginWithTokens({ email, password });
         console.log("Login successful");
+
+        // Redirect to the dashboard or another page after successful login
+        navigate("/dashboard");
       })
       .catch((error: any) => {
         console.log("Login error:", error);
